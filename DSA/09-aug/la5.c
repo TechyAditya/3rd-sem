@@ -1,3 +1,4 @@
+//LA-5.	Given an unsorted dynamic array of size n, WAP to find and display the number of elements between two elements a and b (both inclusive). 
 #include <stdio.h>
 int main()
 {
@@ -31,7 +32,7 @@ int main()
     int ctr = 0;
     printf("Elements between upper and lower: ");
     for (int i = 0; i < n; i++)
-        if (arr[i] <= upper && arr[i] >= lower)  
+        if (arr[i] <= upper && arr[i] >= lower)
         {
             ctr++;
             printf("%d, ", arr[i]);
