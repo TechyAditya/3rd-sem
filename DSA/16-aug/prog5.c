@@ -3,7 +3,7 @@
 int main()
 {
     int n;
-    printf("Enter size of matrix, n=");
+    printf("Enter size of matrix:, n=");
     scanf("%d", &n);
     int arr1[n][n], arr2[n][n];
     printf("Enter elements of matrix 1:\n");
@@ -33,7 +33,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
-            printf("%d ", product[i][j]);
+            printf("%d\t", product[i][j]);
         printf("\n");
     }
     
