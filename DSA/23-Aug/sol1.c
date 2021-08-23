@@ -1,149 +1,104 @@
-//WAP to input a sparse matrix and represent it using 3 tuple
-//representation by both row major order and column major order
+// Represent a sparse matrix in 3 tuple form
 
 #include <stdio.h>
-
-void row_order()
-{
-    int i, j, k, r, c;
-    printf("Enter rows(r),column(c): ");
-    scanf("%d%d", &r, &c);
-
-    int matrix[r][c];
-    printf("Enter matrix elements: ");
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-    printf("Array:\n");
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-    int size = 0;
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; i < c; j++)
-        {
-            if (matrix[i][j] != 0)
-            {
-                size++;
-            }
-        }
-    }
-
-    int row = size + 1, column = 3;
-    k = 1;
-    int sparse_matrix[row][column];
-    sparse_matrix[0][0] = r;
-    sparse_matrix[0][1] = c;
-    sparse_matrix[0][2] = size;
-
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            if (matrix[i][j] != 0)
-            {
-                sparse_matrix[k][0] = i;
-                sparse_matrix[k][1] = j;
-                sparse_matrix[k][2] = matrix[i][j];
-                k++;
-            }
-        }
-    }
-
-    printf("Matrix Array:\n");
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            printf("%d ", sparse_matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-void column_order()
-{
-    int i, j, k, r, c;
-    printf("Enter rows(r),column(c): ");
-    scanf("%d%d", &r, &c);
-
-    int matrix[r][c];
-    printf("Enter matrix elements: ");
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-    printf("Array:\n");
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
-            printf("%d ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-
-    int size = 0;
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; i < c; j++)
-        {
-
-            if (matrix[i][j] != 0)
-            {
-                size++;
-            }
-        }
-    }
-
-    int row = 3, column = size + 1;
-    k = 1;
-    int sparse_matrix[row][column];
-    sparse_matrix[0][0] = r;
-    sparse_matrix[1][0] = c;
-    sparse_matrix[2][0] = size;
-
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            if (matrix[i][j] != 0)
-            {
-                sparse_matrix[0][k] = i;
-                sparse_matrix[1][k] = j;
-                sparse_matrix[2][k] = matrix[i][j];
-                k++;
-            }
-        }
-    }
-
-    printf("Matrix Array:\n");
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < column; j++)
-        {
-            printf("%d ", sparse_matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 int main()
 {
-    row_order();
-    column_order();
+    // int arr[4][5] = {{0, 0, 3, 0, 4}, {0, 0, 5, 7, 0}, {0, 0, 0, 0, 0}, {0, 2, 6, 0, 0}};
+    // 0 0 3 0 4 0 0 5 7 0 0 0 0 0 0 0 2 6 0 0
+
+    int m, n;
+    printf("Enter size of the sparse matrix -\n");
+    scanf("%d %d", &m, &n);
+    int arr[m][n];
+
+    printf("Enter elements- \n");
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int count = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (arr[i][j] != 0)
+                count++;
+        }
+    }
+
+    printf("1. Row Representation\n2. Column Representation\n");
+    int a;
+    scanf("%d", &a);
+    switch (a)
+    {
+    case 1:
+    {
+        int sparse[count + 1][3];
+        sparse[0][0] = 4;
+        sparse[0][1] = 5;
+        sparse[0][2] = count;
+
+        int k = 1;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (arr[i][j] != 0)
+                {
+                    sparse[k][0] = i;
+                    sparse[k][1] = j;
+                    sparse[k][2] = arr[i][j];
+                    k++;
+                }
+            }
+        }
+
+        for (int i = 0; i < count + 1; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf(" %d ", sparse[i][j]);
+            }
+            printf("\n");
+        }
+        return 0;
+    }
+
+    case 2:
+    {
+        int sparse[3][count + 1];
+        sparse[0][0] = 4;
+        sparse[1][0] = 5;
+        sparse[2][0] = count;
+
+        int k = 1;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (arr[i][j] != 0)
+                {
+                    sparse[0][k] = i;
+                    sparse[1][k] = j;
+                    sparse[2][k] = arr[i][j];
+                    k++;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < count + 1; j++)
+            {
+                printf(" %d ", sparse[i][j]);
+            }
+            printf("\n");
+        }
+        return 0;
+    }
+    }
     return 0;
 }
