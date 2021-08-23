@@ -1,3 +1,4 @@
+//2. Write a program to add two distances( feet ,inch) using structure
 #include <stdio.h>
 struct Size
 {

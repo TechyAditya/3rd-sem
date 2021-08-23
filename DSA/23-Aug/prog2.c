@@ -1,3 +1,4 @@
+//2. WAP to create a array using dynamic memory allocation and display elements in reverse order
 #include <stdio.h>
 #include <stdlib.h>
 int main()

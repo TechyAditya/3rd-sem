@@ -1,3 +1,4 @@
+//1. WAP to store student details (name,roll,branch,perc) using structure
 #include <stdio.h>
 struct student
 {

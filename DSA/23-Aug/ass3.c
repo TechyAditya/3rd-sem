@@ -1,3 +1,4 @@
+//3. Wap to display 5  book details(title, author,subject, book_id) using structure.
 #include <stdio.h>
 struct Book
 {
