@@ -141,8 +141,9 @@ void column_order()
     }
 }
 
-void main()
+int main()
 {
     row_order();
     column_order();
+    return 0;
 }
