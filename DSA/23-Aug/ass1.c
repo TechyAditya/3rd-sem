@@ -7,6 +7,7 @@ struct student
     char branch[10];
     float perc;
 }s;
+
 void input()
 {
     printf("Enter name: ");

@@ -1,0 +1,1 @@
+//4. Do q1 using dynamic memory allocation

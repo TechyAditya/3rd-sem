@@ -4,6 +4,7 @@
 int main()
 {
     int r, c;
+    show();
     printf("Enter number of rows and columns of matrix: ");
     scanf("%d %d", &r, &c);
     int **ptr = (int **)malloc(r * sizeof(int));
@@ -26,7 +27,6 @@ int main()
         }
         printf("\n");
     }
-
     printf("Sum of all the elements = %d\n", sum);
     return 0;
 }
