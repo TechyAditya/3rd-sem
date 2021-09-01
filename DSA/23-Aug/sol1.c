@@ -1,34 +1,42 @@
-//add 2 matrix
+#include <iostream>
+#include <string>
+using namespace std;
+class Student
+{
+	string name;
+	int marks;
 
-#include <stdio.h>
+public:
+	void getName()
+	{
+		scanf(" "); //needed to eliminate enter button
+		getline(cin, name);
+	}
+	void getMarks()
+	{
+		cin >> marks;
+	}
+	void displayInfo()
+	{
+		cout << "Name : " << name << endl;
+		cout << "Marks : " << marks << endl;
+	}
+};
 int main()
 {
-    int r, c, i, j;
-    printf("enter no. of rows and columns of matrix:");
-    scanf("%d %d", &r, &c);
-
-    int a[r][c], b[r][c], sum[r][c];
-    printf("enter elements of array1 \n");
-    for (i = 0; i < r; i++)
-        for (j = 0; j < c; j++)
-            scanf("%d", &a[i][j]);
-
-    printf("enter elements of array2 \n");
-    for (i = 0; i < r; i++)
-        for (j = 0; j < c; j++)
-            scanf("%d", &b[i][j]);
-
-    for (i = 0; i < r; i++)
-        for (j = 0; j < c; j++)
-            sum[i][j] = a[i][j] + b[i][j];
-    
-    printf("sum of matrices:\n");
-    for (i = 0; i < r; i++)
-    {
-        for (j = 0; j < c; j++)
-            printf("%d\t", sum[i][j]);
-        printf("\n");
-    }
-
-    return 0;
+	Student st[5];
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Student " << i + 1 << endl;
+		cout << "Enter name" << endl;
+		st[i].getName();
+		cout << "Enter marks" << endl;
+		st[i].getMarks();
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Student " << i + 1 << endl;
+		st[i].displayInfo();
+	}
+	return 0;
 }
