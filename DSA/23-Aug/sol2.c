@@ -95,7 +95,7 @@ void create()
 {
     int data;
 
-    temp = (struct node *)malloc(1 * sizeof(struct node));
+    temp = (struct node *)malloc(sizeof(struct node));
     temp->prev = NULL;
     temp->next = NULL;
     printf("\n Enter value to node : ");
