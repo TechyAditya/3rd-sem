@@ -1,4 +1,4 @@
-//2. Modify the program 1 to store marks in 5 subjects. Calculate the total marks and percentage of a student and display it
+//2. Modify the program 1 to store marks in 5 sub   jects. Calculate the total marks and percentage of a student and display it
 #include <iostream>
 using namespace std;
 class Student
