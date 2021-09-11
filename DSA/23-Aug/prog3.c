@@ -4,7 +4,6 @@
 int main()
 {
     int r, c;
-    show();
     printf("Enter number of rows and columns of matrix: ");
     scanf("%d %d", &r, &c);
     int **ptr = (int **)malloc(r * sizeof(int));

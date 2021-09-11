@@ -8,7 +8,7 @@ struct Size
 
 Size in(Size x)
 {
-    printf("Feet:  ");
+    printf("Feet: ");
     scanf("%d", &x.feet);
     printf("Inch: ");
     scanf("%d", &x.inch);
@@ -29,7 +29,7 @@ Size calc(Size a, Size b)
 
 void out(Size x)
 {
-    printf("%d ft %d in\n", x.feet, x.inch);
+    printf("Result: %d ft %d in\n", x.feet, x.inch);
 }
 
 int main()

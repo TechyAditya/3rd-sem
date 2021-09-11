@@ -31,7 +31,7 @@ int main()
     //output
     printf("Sparse matrix in tuple:\n");
     printf("Row\tColumn\tNumber\n");
-    for (int i = 0; i < ctr; i++)
+    for (int i = 0; i <= ctr; i++)
         printf("%d\t%d\t%d\n", sparse[i][0], sparse[i][1], sparse[i][2]);
 
     return 0;
