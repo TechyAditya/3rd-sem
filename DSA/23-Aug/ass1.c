@@ -26,7 +26,7 @@ void output()
     printf("Name: %s\n", s.name);
     printf("Roll no: %d\n", s.roll);
     printf("Branch: %s\n", s.branch);
-    printf("Percentage: %f\n", s.perc);
+    printf("Percentage: %.2f\n", s.perc);
 }
 
 int main()
