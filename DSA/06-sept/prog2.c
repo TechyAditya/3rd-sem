@@ -160,6 +160,7 @@ void enddel()
             temp->next = NULL;
             free(ptr);
             n--;
+            return;
         }
     }
 }
@@ -177,16 +178,16 @@ void posdel()
         return;
     }
 
-    if(pos == n - 1)
+    if (pos == n - 1)
     {
         enddel();
-        break;
+        return;
     }
 
-    if(pos == 0)
+    if (pos == 0)
     {
         begdel();
-        break;
+        return;
     }
 
     for (int i = 0; i < pos - 1; i++)
