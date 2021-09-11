@@ -24,7 +24,13 @@ void newNode(int item)
 void menu()
 {
     int ch;
-    printf("\n1. Create a linked list\n2. Insert node at beginning\n3. Insert node at end\n4. Insert node somewhere\n5. Display linked list\n6. Exit\n>>>");
+    printf("\n1. Create a linked list");
+    printf("\n2. Insert node at beginning");
+    printf("\n3. Insert node at end");
+    printf("\n4. Insert node somewhere");
+    printf("\n5. Display linked list");
+    printf("\n6. Exit");
+    printf("\n>>>");
     scanf("%d", &ch);
     switch (ch)
     {
@@ -70,7 +76,7 @@ void create()
     {
         printf("Enter value of next node, -1 to end: ");
         scanf("%d", &item);
-        if(item == -1)
+        if (item == -1)
             break;
         newNode(item);
         ptr->next = extra;

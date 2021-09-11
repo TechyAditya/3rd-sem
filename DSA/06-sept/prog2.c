@@ -27,7 +27,16 @@ void newNode(int item)
 void menu()
 {
     int ch;
-    printf("\n1. Create a linked list\n2. Insert node at beginning\n3. Insert node at end\n4. Insert node somewhere\n5. Delete from beginning\n6. Delete from end\n7. Delete in specific location\n8. Display linked list\n9. Exit\n>>>");
+    printf("\n1. Create a linked list");
+    printf("\n2. Insert node at beginning");
+    printf("\n3. Insert node at end");
+    printf("\n4. Insert node somewhere");
+    printf("\n5. Delete from beginning");
+    printf("\n6. Delete from end");
+    printf("\n7. Delete in specific location");
+    printf("\n8. Display linked list");
+    printf("\n9. Exit");
+    printf("\n>>>");
     scanf("%d", &ch);
     switch (ch)
     {
@@ -169,7 +178,7 @@ void posdel()
 {
     int pos;
     printf("Enter position: ");
-    scanf("%d", pos);
+    scanf("%d", &pos);
     ptr = start;
 
     if (pos >= n || pos < 0)
@@ -190,7 +199,7 @@ void posdel()
         return;
     }
 
-    for (int i = 0; i < pos - 1; i++)
+    for (int i = 0; i < pos; i++)
     {
         temp = ptr;
         ptr = ptr->next;
