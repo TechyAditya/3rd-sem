@@ -8,19 +8,6 @@ class Item
 public:
     char title[50];
     float price;
-    void getItemData()
-    {
-        cout << "Enter title: ";
-        scanf(" ");
-        cin.getline(title, 50);
-        cout << "Enter price: ";
-        cin >> price;
-    }
-    void displayItemData()
-    {
-        cout << "Title: " << title << endl;
-        cout << "Price: " << price << endl;
-    }
 };
 
 class Sales
@@ -28,20 +15,6 @@ class Sales
 public:
     float sale[3];
     float totalSales;
-    void getSalesData()
-    {
-        totalSales = 0;
-        cout << "Enter number of sales for 3 months: ";
-        for (int i = 0; i < 3; i++)
-        {
-            cin >> sale[i];
-            totalSales += sale[i];
-        }
-    }
-    void displaySalesData()
-    {
-        cout << "Total number of sales: " << totalSales << endl;
-    }
 };
 
 class HW_item : public Item, public Sales
@@ -49,8 +22,22 @@ class HW_item : public Item, public Sales
 public:
     char category[50], manufacturer[50];
     float totalCost;
-    void getHWData()
+    void getData()
     {
+        cout << "Enter title: ";
+        scanf(" ");
+        cin.getline(title, 50);
+        cout << "Enter price: ";
+        cin >> price;
+
+        totalSales = 0;
+        cout << "Enter number of sales for 3 months: ";
+        for (int i = 0; i < 3; i++)
+        {
+            cin >> sale[i];
+            totalSales += sale[i];
+        }
+
         cout << "Enter category: ";
         scanf(" ");
         cin.getline(category, 50);
@@ -58,8 +45,13 @@ public:
         cin.getline(manufacturer, 50);
         totalCost = price * totalSales;
     }
-    void displayHWData()
+    void displayData()
     {
+        cout << "Title: " << title << endl;
+        cout << "Price: " << price << endl;
+
+        cout << "Total number of sales: " << totalSales << endl;
+
         cout << "Category: " << category << endl;
         cout << "Manufacturer: " << manufacturer << endl;
         cout << "Total cost: " << totalCost << endl;
@@ -71,8 +63,23 @@ class SW_item : public Item, public Sales
 public:
     char softwareType[50], OS[50];
     float totalCost;
-    void getSWData()
+    void getData()
     {
+        
+        cout << "Enter title: ";
+        scanf(" ");
+        cin.getline(title, 50);
+        cout << "Enter price: ";
+        cin >> price;
+
+        totalSales = 0;
+        cout << "Enter number of sales for 3 months: ";
+        for (int i = 0; i < 3; i++)
+        {
+            cin >> sale[i];
+            totalSales += sale[i];
+        }
+
         cout << "Enter software type: ";
         scanf(" ");
         cin.getline(softwareType, 50);
@@ -81,8 +88,14 @@ public:
         totalCost = price * totalSales;
         cout << "Total cost: " << totalCost << endl;
     }
-    void displaySWData()
+    void displayData()
     {
+        
+        cout << "Title: " << title << endl;
+        cout << "Price: " << price << endl;
+
+        cout << "Total number of sales: " << totalSales << endl;
+
         cout << "Software type: " << softwareType << endl;
         cout << "OS: " << OS << endl;
         cout << "Total cost: " << totalCost << endl;
@@ -94,24 +107,16 @@ int main()
     HW_item a;
     SW_item b;
     cout << "Enter data for hardware Item: \n";
-    a.getItemData();
-    a.getSalesData();
-    a.getHWData();
+    a.getData();
 
     cout << "Enter data for software Item: \n";
-    b.getItemData();
-    b.getSalesData();
-    b.getSWData();
+    b.getData();
 
     cout << "\nHardware Item: \n";
-    a.displayItemData();
-    a.displaySalesData();
-    a.displayHWData();
+    a.displayData();
 
     cout << "\nSoftware Item: \n";
-    b.displayItemData();
-    b.displaySalesData();
-    b.displaySWData();
+    b.displayData();
 
     return 0;
 }
