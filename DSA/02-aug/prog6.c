@@ -30,7 +30,7 @@ int main()
 
     int largest = 0;
     for (int i = 0; i < n; i++)
-        if (freq[i] > largest)
+        if (freq[i] > freq[largest])
             largest = i;
 
     printf("Majority element = %d", arr[largest]);

@@ -6,7 +6,7 @@ int main()
     printf("Enter n:");
     scanf("%d", &n);
 
-    int A[n], B[n], temp, x = 0, i, j;
+    int A[n], B[n], x = 0, i, j;
     printf("Enter elements of array: ");
     for (int i = 0; i < n; i++)
         scanf("%d", &A[i]);
@@ -14,7 +14,6 @@ int main()
     printf("Unique elements are: ");
     for (i = 0; i < n; i++)
     {
-        temp = 0;
         for (j = 0; j < i; j++)
         {
             if (A[i] == A[j])
