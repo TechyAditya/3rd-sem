@@ -1,0 +1,54 @@
+PseudoCode: 
+S= Stack containing N elements
+TOP= Top of the stack
+X= Element to be inserted
+
+PUSH (S, TOP, X) 
+1. [Increment TOP]
+    TOP = TOP + 1
+2. [Insert element]
+    S[TOP] = X
+3. [Finished]
+    return
+
+POP (S, TOP)
+1. [Check for underflow] 
+    if(top == 0)
+        print('Stack underflow')
+        return
+2. [Delete element from memory]
+    free(S[TOP])
+3. [Decrement pointer]
+    TOP = TOP - 1
+4. [Finish]
+    return
+
+b.      Write a function/Pseudo code to swap the following nodes in a circular single Linked List with minimum number of pointers and having only one pointer head/start to indicate first node address.
+i.              1st node with 2nd node
+ii.             Last node with its previous node
+
+PseudoCode: 
+start= First node of circular single Linked List
+N= number of elements
+
+SWAP (start, N)
+1. [Swap 1st and 2nd one]
+    third = start->next->next; 
+    first = start->next;
+    second = start;
+    start = first;
+    start->next = second;
+    start->next->next = third;
+2. [Swap last and 2nd last one]
+    ptr = start;
+    for(i=1;i<N-2;i++)
+        ptr = ptr->next; //positioning ptr to n-2
+    last3 = ptr;
+    last2 = ptr->next->next;
+    last = ptr->next;
+    ptr->next = last2;
+    ptr->next->next = last;
+    last->next = NULL;
+3. [Finished]
+    return
+        

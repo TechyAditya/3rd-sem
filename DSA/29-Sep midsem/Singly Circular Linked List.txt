@@ -1,0 +1,197 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct linkedlist
+{
+    int a;
+    struct linkedlist *next;
+} * head;
+typedef struct linkedlist p;
+void create(int n)
+{
+    int a;
+    p *new, *temp;
+    head = (p *)malloc(sizeof(p));
+    printf("Enter Data for Node-1: ");
+    scanf("%d", &a);
+    head->a = a;
+    head->next = NULL;
+    temp = head;
+    for (int i = 2; i <= n; i++)
+    {
+        new = (p *)malloc(sizeof(p));
+        printf("Enter Data for Node-%d: ", i);
+        scanf("%d", &a);
+        new->a = a;
+        new->next = NULL;
+        temp->next = new;
+        temp = temp->next;
+    }
+    new->next = head;
+}
+void print()
+{
+    p *temp;
+    temp = head;
+    printf("The linked list:\n");
+    while (temp->next != head)
+    {
+        printf("%d -> ", temp->a);
+        temp = temp->next;
+    }
+    printf("%d\n", temp->a);
+}
+void insert1()
+{
+    int new;
+    printf("Enter Data for New Node: ");
+    scanf("%d", &new);
+    p *node, *ptr;
+    ptr = head;
+    node = (p *)malloc(sizeof(p));
+    while (ptr->next != head)
+    {
+        ptr = ptr->next;
+    }
+    node->a = new;
+    node->next = head;
+    ptr->next = node;
+    head = node;
+}
+void insert2()
+{
+    int new, m;
+    printf("Enter the position to insert a new node: ");
+    scanf("%d", &m);
+    printf("Enter Data for New Node: ");
+    scanf("%d", &new);
+    p *node, *ptr;
+    node = (p *)malloc(sizeof(p));
+    ptr = head;
+    for (int i = 0; i < m - 1; i++)
+    {
+        ptr = ptr->next;
+    }
+    if (ptr == NULL)
+    {
+        printf("The given Previous Node cannot be NULL");
+        return;
+    }
+    node->a = new;
+    node->next = ptr->next;
+    ptr->next = node;
+}
+void insert3()
+{
+    int new;
+    printf("Enter Data for New Node: ");
+    scanf("%d", &new);
+    p *node, *ptr1, *ptr2;
+    node = (p *)malloc(sizeof(p));
+    ptr1 = head;
+    ptr2 = head->next;
+    while (ptr2 != head)
+    {
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+    }
+    node->a = new;
+    node->next = head;
+    ptr1->next = node;
+}
+void delete1()
+{
+    p *ptr, *ptr1;
+    ptr1 = head;
+    while (ptr1->next != head)
+    {
+        ptr1 = ptr1->next;
+    }
+    ptr = head;
+    head = head->next;
+    ptr1->next = head;
+    free(ptr);
+}
+void delete2()
+{
+    p *ptr1, *ptr2;
+    int m;
+    printf("Enter the position of element to be deleted: ");
+    scanf("%d", &m);
+    if (m == 1)
+    {
+        printf("1st node cannot be deleted!\n");
+        return;
+    }
+    ptr1 = head;
+    ptr2 = head->next;
+    for (int i = 0; i < m - 2; i++)
+    {
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+    }
+    ptr1->next = ptr2->next;
+    free(ptr2);
+}
+void delete3()
+{
+    p *ptr1, *ptr2, *ptr3;
+    ptr1 = head;
+    ptr2 = head->next;
+    ptr3 = head->next->next;
+    while (ptr3 != head)
+    {
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+        ptr3 = ptr3->next;
+    }
+    ptr1->next = head;
+    free(ptr2);
+}
+int main()
+{
+    int n, choice;
+    printf("Enter 0 to terminate the program.\nEnter 1 to Create a Linked List.\nEnter 2 to print the list.\nEnter 3 to insert node at the beginning of the list.\nEnter 4 to Insert a node at any position of the list.\nEnter 5 to Insert node at end of the list.\nEnter 6 to delete a node from beginning of the list.\nEnter 7 to delete a node from any position of the list.\nEnter 8 to delete a node the end of the list.\n");
+    do
+    {
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            printf("Enter no. of nodes: ");
+            scanf("%d", &n);
+            create(n);
+            printf("The Linked List is Created.\n");
+            break;
+        case 2:
+            print();
+            break;
+        case 3:
+            insert1();
+            printf("An Element is Inserted at the beginning of the list.\n");
+            break;
+        case 4:
+            insert2();
+            printf("An Element is Inserted at the desired position of the list.\n");
+            break;
+        case 5:
+            insert3();
+            printf("An Element is Inserted at the end of the list.\n");
+            break;
+        case 6:
+            delete1();
+            printf("An Element is Deleted at the beginning of the list.\n");
+            break;
+        case 7:
+            delete2();
+            printf("An Element is Deleted at the desired position of the list.\n");
+            break;
+        case 8:
+            delete3();
+            printf("An Element is Deleted at the end of the list.\n");
+            break;
+        }
+    } while (choice != 0);
+    printf("The Program is Terminated.");
+    return 0;
+}
