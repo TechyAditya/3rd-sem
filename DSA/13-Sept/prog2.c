@@ -1,5 +1,5 @@
 /*
-Write a menu driven program to perform the following operations in a circular 2-way linked list:-
+Write a menu driven program to perform the following operations in a circular 1-way linked list:-
 (a)Creating a linked list
 (b)Inserting a node at the beginning of the linked list
 (c)Inserting a node at the end of the linked list
@@ -13,7 +13,6 @@ Write a menu driven program to perform the following operations in a circular 2-
 #include <stdlib.h>
 struct node
 {
-    struct node *prev;
     int data;
     struct node *next;
 } * start, *end, *extra, *ptr, *temp;
@@ -33,7 +32,6 @@ void newNode(int item)
     extra = (struct node *)malloc(sizeof(struct node));
     extra->data = item;
     extra->next = NULL;
-    extra->prev = NULL;
     n++;
 }
 
@@ -100,11 +98,9 @@ void create()
 
     //for single element
     start = extra;
-    start->prev = extra;
     start->next = extra;
-    end = extra;
-    end->prev = extra;
-    end->next = extra;
+    end = start;
+    end->next = start;
 
     //adding more elements
     ptr = start;
@@ -118,11 +114,8 @@ void create()
         temp = ptr;
         ptr->next = extra;
         ptr = ptr->next;
-        ptr->prev = temp;
-
         end = extra;
         end->next = start;
-        start->prev = end;
     }
 }
 
@@ -135,9 +128,6 @@ void beginsert()
     ptr = start;
     start = extra;
     start->next = ptr;
-    ptr->prev = start;
-
-    start->prev = end;
     end->next = start;
 }
 
@@ -147,9 +137,15 @@ void endinsert()
     printf("Enter item: ");
     scanf("%d", &item);
     newNode(item);
-    end->next = extra;
-    extra->prev = end;
-    end = end->next; 
+
+    ptr = start;
+    while (ptr->next != end)
+        ptr = ptr->next;
+    ptr = ptr->next;
+
+    end = extra;
+    end->next = start;
+    ptr->next = end;
 }
 
 void posinsert()
@@ -165,8 +161,6 @@ void posinsert()
         ptr = ptr->next;
     temp = ptr->next;
     extra->next = temp;
-    temp->prev = extra;
-    extra->prev = ptr;
     ptr->next = extra;
 }
 
@@ -185,17 +179,20 @@ void begdel()
 {
     ptr = start;
     start = start->next;
-    start->prev = NULL;
     free(ptr);
     n--;
 }
 
 void enddel()
 {
-    temp = end;
-    end = end->prev;
+    temp = start;
+    while (temp->next != start)
+    {
+        ptr = temp;
+        temp = temp->next;
+    }
+    end = ptr;
     end->next = start;
-    start->prev = end;
     free(temp);
     n--;
 }
@@ -228,8 +225,10 @@ void posdel()
     //logic starts here
     temp = start;
     for (int i = 0; i < pos; i++)
+    {
+        ptr = temp;
         temp = temp->next;
-    ptr = temp->prev;
+    }
     ptr->next = temp->next;
     free(temp);
 }
