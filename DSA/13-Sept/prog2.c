@@ -38,7 +38,7 @@ void newNode(int item)
 void menu()
 {
     int ch;
-    printf("\n1. Create a double linked list");
+    printf("\n1. Create a 1-way circular linked list");
     printf("\n2. Insert node at beginning");
     printf("\n3. Insert node at end");
     printf("\n4. Insert node somewhere");
