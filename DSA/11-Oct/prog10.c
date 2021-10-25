@@ -1,16 +1,16 @@
 //10. WAP to implement queue using linked list
-//9. WAP to implement queue using array
 #include <stdio.h>
 #include <stdlib.h>
 
 int *queue_array;
 int rear = -1;
 int front = -1;
+int n;
 
 void insert()
 {
     int item;
-    if (rear == MAX - 1)
+    if (rear == n - 1)
         printf("Queue Overflow\n");
     else
     {

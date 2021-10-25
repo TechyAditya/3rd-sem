@@ -67,11 +67,13 @@ start:
     case 4:
         printf("Enter number: ");
         scanf("%d, ", &num);
+        push(num);
         sort(top);
         printf("New stack is:\n");
         display();
         break;
     case 5:
+        display();
         return 0;
     default:
         printf("Wrong choice, try again");

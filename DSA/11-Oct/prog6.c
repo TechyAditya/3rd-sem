@@ -24,7 +24,7 @@ int main()
     int a, b, c, i;
     char prefix[50];
 
-    printf("\nEnter the prefix expression: ");
+    printf("Enter the prefix expression: ");
     scanf("%s", prefix);
 
     for (i = strlen(prefix) - 1; i >= 0; i--)
@@ -60,6 +60,6 @@ int main()
             push(prefix[i] - 48);
         }
     }
-    printf("Postfix Evaluation = %d", pop());
+    printf("Prefix Evaluation = %d", pop());
     return 0;
 }

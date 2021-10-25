@@ -97,7 +97,6 @@ void infix_to_postfix(char *s)
 void display(Stack *s)
 {
     int i;
-    printf("\n");
     if (s->top == -1)
         printf("Stack Empty !!!\n");
     for (i = s->top; i >= 0; i--)
@@ -109,7 +108,7 @@ int main()
     create(&s1);
     create(&s2);
     char s[100];
-    printf("Enter Expression : ");
+    printf("Enter the expression: ");
     scanf("%s", s);
     infix_to_postfix(s);
     display(&s2);
