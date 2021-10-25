@@ -1,81 +1,121 @@
 //4. WAP to implement a stack using single queue.
-//3. Wap to implement queue using stacks
 #include <stdio.h>
 #include <stdlib.h>
-int n, top, top2, *stack;
+#define MAX 50
 
-void pop()
+typedef struct
 {
-    if (top == -1)
-        printf("Queue is empty");
+    int data[MAX];
+    int front;
+    int rear;
+} Queue;
+
+Queue q1;
+
+int insert(Queue *q, int num)
+{
+    if (q->rear == MAX - 1)
+    {
+        printf("Queue is full\n");
+        return 1;
+    }
+    if (q->rear == -1)
+    {
+        q->front = q->rear = 0;
+        q->data[q->rear] = num;
+    }
     else
-        stack[top--] = -1;
+    {
+        q->rear++;
+        q->data[q->rear] = num;
+    }
+    return 0;
 }
 
-void display()
+int del(Queue *q, int *m)
 {
-    for (int i = top; i > -1; i--)
-        printf("%d ", stack[i]);
+    if (q->front == -1)
+    {
+        printf("Q is empty\n");
+        return 1;
+    }
+    if (q->front == q->rear)
+    {
+        *m = q->data[q->front];
+        q->front = q->rear = -1;
+    }
+    else
+    {
+        *m = q->data[q->front];
+        q->front++;
+    }
+    return *m;
 }
 
-void insert()
+void display(Queue q)
 {
-    if(top == n)
+    int i;
+    if (q.front == -1)
+        printf("Queue is empty \n");
+    else
     {
-        printf("Queue overflow");
+        for (i = q.front; i <= q.rear; i++)
+            printf("%d ", q.data[i]);
+        printf("\n");
     }
-    int num;
-    printf("Enter element to insert: ");
-    scanf("%d", &num);
-    if (top == -1)
-    {
-        top = 0;
-        stack[top] = num;
-        return;
-    }
-    int *temp = (int *)malloc(n * sizeof(int));
-    top2 = -1;
+}
 
-    while (top != -1)
+int isEmpty(Queue q)
+{
+    return (q.front == -1) ? 1 : 0;
+}
+
+int push(int v)
+{
+    return insert(&q1, v);
+}
+
+int pop()
+{
+    int p = isEmpty(q1);
+    if (p)
+        return p;
+    int i = q1.front;
+    int j = q1.rear;
+    while (i != j)
     {
-        temp[++top2] = stack[top--]; //popping from stack and pushing to temporary stack
+        int n;
+        del(&q1, &n);
+        insert(&q1, n);
+        i++;
     }
-    stack[++top] = num; //last element of stack, making it queue
-    while(top2 != -1)
-    {
-        stack[++top] = temp[top2--]; //popping from temporary stack and pushing to original stack
-    }
+    int n;
+    return del(&q1, &n);
 }
 
 int main()
 {
-    int choice;
-    printf("Enter size of queue: ");
-    scanf("%d", &n);
-    stack = (int *)malloc(n * sizeof(int));
+    q1.front = q1.rear = -1;
+    int ch, num;
     while (1)
     {
-        printf("\n1.Insert element to queue");
-        printf("\n2.Delete element from queue");
-        printf("\n3.Display all elements of queue");
-        printf("\n4.Quit");
-        printf("\nEnter your choice: ");
-        scanf("%d", &choice);
-        switch (choice)
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n>>");
+        scanf("%d",&ch);
+        switch (ch)
         {
         case 1:
-            insert();
+            printf("Enter a number: ");
+            scanf("%d", &num);
+            push(num);
             break;
         case 2:
-            pop();
+            printf("%d has been removed", pop());
             break;
         case 3:
-            display();
+            display(q1);
             break;
         case 4:
             return 0;
-        default:
-            printf("Wrong choice");
         }
     }
 }
