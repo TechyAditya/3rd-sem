@@ -19,7 +19,7 @@ void display()
 
 void insert()
 {
-    if(top == n)
+    if (top == n)
     {
         printf("Queue overflow");
     }
@@ -40,7 +40,7 @@ void insert()
         temp[++top2] = stack[top--]; //popping from stack and pushing to temporary stack
     }
     stack[++top] = num; //last element of stack, making it queue
-    while(top2 != -1)
+    while (top2 != -1)
     {
         stack[++top] = temp[top2--]; //popping from temporary stack and pushing to original stack
     }
@@ -49,6 +49,7 @@ void insert()
 int main()
 {
     int choice;
+    top = -1;
     printf("Enter size of queue: ");
     scanf("%d", &n);
     stack = (int *)malloc(n * sizeof(int));

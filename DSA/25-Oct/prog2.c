@@ -42,7 +42,7 @@ void push2()
 void pop2()
 {
     if (top2 >= m)
-        stack[top--] = -1;
+        stack[top2--] = -1;
     else
         printf("Stack 2 is empty");
 }
