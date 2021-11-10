@@ -1,0 +1,1 @@
+//Rewrite Question 2 using class template

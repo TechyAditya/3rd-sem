@@ -1,0 +1,1 @@
+//WAP to throw and handle ‘division by zero’ exception. 6) WAP to throw and handle’ array out of bound’ exception. WAP to throw and handle ‘division by zero’ exception. 6) WAP to throw and handle’ array out of bound’ exception. 

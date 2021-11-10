@@ -1,0 +1,1 @@
+//WAP to display data of two different types using function template with multiple arguments.

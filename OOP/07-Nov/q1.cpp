@@ -1,4 +1,4 @@
-//Write a program to accept 10 integers in an array. Check all numbers in the array. When any negative number is found, throw an exception.
+//1. Write a program to accept 10 integers in an array. Check all numbers in the array. When any negative number is found, throw an exception.
 #include <iostream>
 using namespace std;
 int main()
