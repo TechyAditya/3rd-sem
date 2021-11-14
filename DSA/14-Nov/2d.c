@@ -1,0 +1,1 @@
+//Design pseudo code/function to add a given value K to each element in the double linked list and if it becomes greater than M, then convert it to 0...M-1 by doing modulo operation with M.(k<M). Then if the element in the current node is equal to any other node previous to this, delete the current node.

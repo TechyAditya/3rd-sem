@@ -1,0 +1,1 @@
+//Using basic stack push() and pop() operation implement the insert() function as follows. Insert(): Insert function will insert the new element if the element doesn‘t exist and the insertion will happen using push() such that after insertion the stack elements will be in a sorted manner.

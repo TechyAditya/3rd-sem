@@ -1,1 +1,1 @@
-//WAP to demonstrate multiple catch and catch all
+//WAP to throw and handle’ array out of bound’ exception. 
