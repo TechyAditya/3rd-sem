@@ -1,5 +1,4 @@
-// Write a program create a class complex add and subtract two complex
-// number using operator overloading concept.
+// Write a program create a class complex add and subtract two complex number using operator overloading concept.
 #include <iostream>
 using namespace std;
 class complex
