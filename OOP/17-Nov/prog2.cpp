@@ -1,0 +1,1 @@
+//Write a program for reading data simultaneously from two files and display the contents  

@@ -1,5 +1,4 @@
-// Write a program create a class complex add and subtract two complex
-// number using operator overloading concept.
+// Write a program create a class complex add and subtract two complex number using operator overloading concept.
 #include <iostream>
 using namespace std;
 class complex
@@ -15,7 +14,10 @@ public:
     void display()
     {
         cout << "The complex number is: " << endl;
-        cout << r << " + " << i << "i" << endl;
+        if(i >= 0)
+            cout << r << "+" << i << "i" << endl;
+        else
+            cout << r << i << "i" << endl;
     }
     friend complex operator+(complex n1, complex n2);
     friend complex operator-(complex n1, complex n2);

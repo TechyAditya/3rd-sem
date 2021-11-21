@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstring>
+
 using namespace std;
 
 class Str
@@ -23,6 +24,7 @@ public:
         T.data[i++] = ' ';
         for (j = 0; B.data[j] != '\0'; i++, j++)
             T.data[i] = B.data[j];
+        T.data[i] = '\0';
         return T;
     }
     void operator=(Str B)
@@ -48,28 +50,49 @@ int stringLength(Str A)
 
 int main()
 {
-    Str A;
-    //Operator +
-    strcpy(A.data, "abcdefghij");
-    Str B;
-    strcpy(B.data, "0123456789");
-    Str T = A + B;
-    cout << T.data << endl;
-    //Operator =
-    Str C;
-    C = B;
-    cout << C.data << endl;
-    //Operator ==
-    switch (B == C)
+    Str A, B, C;
+    cout << "Enter data for String 1: ";
+    cin.getline(A.data, 40);
+    cout << "Enter data for String 2: ";
+    cin.getline(B.data, 40);
+    cout << "MENU\n"
+         << "1. Concatenate\n"
+         << "2. Copy\n"
+         << "3. Check for matches\n"
+         << "Enter your choice: ";
+    int ch;
+    cin >> ch;
+    switch (ch)
     {
-    case 0:
-        cout << "Not same";
-        break;
     case 1:
-        cout << "Same";
-        break;
+        C = A + B;
+        cout << "A + B = " << C.data << endl;
+        return 0;
+    case 2:
+        cout << "Enter string number to copy(1/2): ";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            C = A;
+            cout << "C = " << C.data << endl;
+            break;
+        case 2:
+            C = B;
+            cout << "C = " << C.data << endl;
+            break;
+        default:
+            cout << "Invalid input.";
+        }
+        return 0;
+    case 3:
+        if (A == B)
+            cout << "Both are same";
+        else
+            cout << "Both are different";
+        return 0;
+    default:
+        cout << "Invalid input.";
+        return -1;
     }
-    //Length of Str
-    cout << "\nLength =" << stringLength(A);
-    return 0;
 }
