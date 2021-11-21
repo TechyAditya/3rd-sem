@@ -74,6 +74,11 @@ base base ::operator*(base c1)
 base base ::operator/(base c1)
 {
     base temp;
+    if (denom == 0)
+    {
+        cout << "Fatal error: denominator is 0";
+        exit(0);
+    }
     temp.numer = numer * c1.denom;
     temp.denom = c1.numer * denom;
     return temp;
