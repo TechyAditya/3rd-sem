@@ -1,16 +1,18 @@
-//Write a C++ program using function template to read two matrices of different data types such as integers and floating point values and find the sum of the matrices of integers and floating point numbers separately, and display the total sums of these arrays individually.
+//WAP to find sort an integer array and a float array, using function template.
 #include <iostream>
 using namespace std;
 int m, n;
 template <class T>
-void add(T x[100][100])
+void sort(T a[100], int n)
 {
-    typeof(x[0][0]) sum;
-    sum = 0;
-    for (int i = 0; i < m; i++)
-        for (int j = 0; j < n; j++)
-            sum += x[i][j];
-    cout << "Sum of elements = " << sum << endl;
+    for (int i = 0; i < n; i++)
+        for (int j = i + 1; j < n; j++)
+            if (a[i] > a[j])
+            {
+                T temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
 }
 
 template <class T>
@@ -38,21 +40,21 @@ int main()
     {
         int x[100][100];
         inp(x);
-        add(x);
+        sort(x);
         break;
     }
     case 2:
     {
         float x[100][100];
         inp(x);
-        add(x);
+        sort(x);
         break;
     }
     case 3:
     {
         double x[100][100];
         inp(x);
-        add(x);
+        sort(x);
         break;
     }
     default:

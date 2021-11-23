@@ -34,11 +34,11 @@ void sortobj()
 void combsort() //combine and sort
 {
     string source1, source2, output;
-    cout<<"Enter filename for Source 1: ";
+    cout << "Enter filename for Source 1: ";
     cin >> source1;
-    cout<<"Enter filename for Source 2: ";
+    cout << "Enter filename for Source 2: ";
     cin >> source2;
-    cout<<"Enter filename for Output: ";
+    cout << "Enter filename for Output: ";
     cin >> output;
     ifstream src1(source1);
     ifstream src2(source2);
