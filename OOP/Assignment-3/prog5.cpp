@@ -1,5 +1,4 @@
-//Rewrite q3 using class function
-
+//WAP to display data of two different types using class template with multiple arguments.
 #include <iostream>
 using namespace std;
 
