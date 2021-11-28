@@ -1,4 +1,4 @@
-//Find missing number from the given array
+//Find missing number from the given series of number
 #include <stdio.h>
 int main()
 {
